@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Robot-js Desktop app</title>
+    <script src="http://127.0.0.1/socket.io/socket.io.js"></script>
+    <script>
+      window.onload = function(){
+        var socket = io('http://localhost');
+        var container = document.getElementById('container');
+        socket.on('chat-message', function (data) {
+          console.log('chat-message', data, container);
+          container.innerHTML = container.innerHTML + '<br/>' + data;
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id='container'></div>
+  </body>
+</html>
